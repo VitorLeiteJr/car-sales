@@ -389,8 +389,8 @@
 			"props": {
 				"color": "black",
 				"size": "m",
-				"w": 729.1640625,
-				"text": "REF: https://www.kavak.com/br \nhttps://pro-theme.com/html/sokolcov/auto-club/home.html-",
+				"w": 718.578125,
+				"text": "REF: https://www.kavak.com/br \nhttps://pro-theme.com/html/sokolcov/auto-club/home.html",
 				"font": "draw",
 				"textAlign": "start",
 				"autoSize": true,
@@ -1827,9 +1827,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 1101.3589869780003,
-			"y": 251.83395953223436,
-			"lastActivityTimestamp": 1731887953422,
+			"x": 652.2195456706552,
+			"y": 351.759775293132,
+			"lastActivityTimestamp": 1731934668653,
 			"meta": {}
 		},
 		{
@@ -1878,12 +1878,12 @@
 			"typeName": "instance"
 		},
 		{
-			"editingShapeId": null,
+			"editingShapeId": "shape:bSL5sfJOHdSG7vtTWW6H6",
 			"croppingShapeId": null,
 			"selectedShapeIds": [
-				"shape:iFhkyJlLB43pt-c0jdRRr"
+				"shape:bSL5sfJOHdSG7vtTWW6H6"
 			],
-			"hoveredShapeId": "shape:iFhkyJlLB43pt-c0jdRRr",
+			"hoveredShapeId": "shape:bSL5sfJOHdSG7vtTWW6H6",
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -1894,7 +1894,7 @@
 		},
 		{
 			"x": 106.22197090761854,
-			"y": -101.01647255914236,
+			"y": -94.20548456662453,
 			"z": 0.8459988159598334,
 			"meta": {},
 			"id": "camera:page:page",

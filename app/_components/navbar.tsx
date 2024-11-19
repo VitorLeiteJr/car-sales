@@ -1,36 +1,37 @@
 import React from 'react'
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from './ui/navigation-menu'
-import Link from 'next/link'
 import Image from 'next/image'
+import { Button } from './ui/button';
 
 const Navbar = () => {
   return (
-    
-   <div className='flex justify-between items-center px-5 py-2 bg-slate-400'>
+  <nav className="bg-white text-black font-semibold">
+  <div className="container mx-auto flex items-center justify-between p-4">
+    {/* Logo */}
+    <Image src={'/logo.png'} width={50} height={50} alt='logo'/>
 
-{/**ITEMS */}
-    <div >
-      <Image src={"/logo.png"} width={65} height={65} alt={"logo"}/>
-    
-    </div>
-    <div className='flex gap-5 items-center font-semibold caption-top'>
+    {/* Menu */}
+    <ul className="flex space-x-6">
+      <li>
+        <a href="#" className="hover:text-gray-300">Home</a>
+      </li>
+      <li>
+        <a href="#" className="hover:text-gray-300">Sobre</a>
+      </li>
+      <li>
+        <a href="#" className="hover:text-gray-300">Carros</a>
+      </li>
+      <li>
+        <a href="#" className="hover:text-gray-300">Contato</a>
+      </li>
+    </ul>
 
-    <Link href={'/'}>Home</Link>
-      <Link href={'/about'}>Sobre</Link>
-      <Link href={'/contact'}>Contato</Link>
-      <Link href={'/cars'}>Carros</Link>
-
-    </div>
-
-    {/* LOGIN */ }
-    <div>
-    Login
-    </div>
-
-   </div> 
-
-
-  )
-}
+    {/* Button */}
+    <button className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded">
+      Login
+    </button>
+  </div>
+</nav>
+);
+};
 
 export default Navbar
