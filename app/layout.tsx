@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`antialiased bg-black text-white font-sans min-h-screen`}
+        className={`antialiased bg-white text-white font-sans min-h-screen`}
       >
         {children}
       </body>
