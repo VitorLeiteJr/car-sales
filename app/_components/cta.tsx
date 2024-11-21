@@ -3,15 +3,14 @@ import Image from 'next/image'
 
 const CallToAction = () => {
   return (
-    <div className='bg-red-600 flex justify-around items-center'>
+    <div className='bg-red-600 flex justify-around items-center px-56'>
 
-    <div className='px-56'>
+    <div>
         <p className='font-semibold text-5xl py-8'> Elegantes, robustos e completos!</p>
         <p className='text-xl'>compre nossos carros em alta qualidade!</p>
 
     <div className='py-7'>
     <button className='px-6 py-3 bg-white hover:bg-yellow-50 text-black rounded '>Saiba mais</button>
-
     </div>
     
     </div>

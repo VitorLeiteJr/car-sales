@@ -10,7 +10,7 @@ const Banner = () => {
         Linha premium de automoveis de alta qualidade
       </p>
       <button className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded">
-        Learn More
+        Saiba mais
       </button>
     </div>
   </div>
