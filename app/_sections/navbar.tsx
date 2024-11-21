@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Button } from './ui/button';
+import { Button } from '../_components/ui/button';
 
 const Navbar = () => {
   return (

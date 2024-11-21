@@ -1,9 +1,9 @@
-import Banner from "./_components/banner";
-import CallToAction from "./_components/cta";
-import Navbar from "./_components/navbar";
-import QualitySection from "./_components/qualitySeaction";
-import CalltoActionSecond from "./_components/cta-second";
-import OurShops from "./_components/ourShops";
+import Banner from "./_sections/banner";
+import CallToAction from "./_sections/cta";
+import Navbar from "./_sections/navbar";
+import QualitySection from "./_sections/qualitySeaction";
+import CalltoActionSecond from "./_sections/cta-second";
+import OurShops from "./_sections/ourShops";
 
 export default function Home() {
   return (
