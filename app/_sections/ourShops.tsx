@@ -4,7 +4,7 @@ import React from 'react'
 const OurShops = () => {
   return (
 
-    <div className='px-56 bg-red-600 text-white font-semibold'>
+    <div className='px-56 text-black font-semibold'>
 
        <div className='justify-center items-center grid py-9'>
 
