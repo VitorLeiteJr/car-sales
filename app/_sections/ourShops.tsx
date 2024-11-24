@@ -17,31 +17,31 @@ const OurShops = () => {
             
             <div>
             <Image src={'/lamb.jpg'} alt='' width={500} height={300}/>
-              <div className='px-2 py-2 bg-white rounded-b-2xl border-b-black border-2' > 
+              <div className='px-2 py-2 bg-white rounded-b-2xl border-b-primary border-2' > 
                   <p className='py-3 text-black text-3xl font-semibold'>Auto Club</p>
                   <p className=' py-3 text-black'>Avenida SP, Mato Grosso, Brasil</p>
                   
-                  <button className='px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded '>Saiba mais</button>
+                  <button className='px-6 py-3 bg-primary hover:bg-primary-hover text-white rounded '>Saiba mais</button>
             </div>
             </div>
 
             <div>
             <Image src={'/lamb.jpg'} alt='' width={500} height={300}/>
-              <div className='px-2 py-2 bg-white rounded-b-2xl border-b-black border-2' > 
+              <div className='px-2 py-2 bg-white rounded-b-2xl border-b-primary border-2' > 
                   <p className='py-3 text-black text-3xl font-semibold'>Auto Club</p>
                   <p className=' py-3 text-black'>Avenida SP, Mato Grosso, Brasil</p>
                   
-                  <button className='px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded '>Saiba mais</button>
+                  <button className='px-6 py-3 bg-primary hover:bg-primary-hover text-white rounded '>Saiba mais</button>
             </div>
             </div>
 
             <div>
             <Image src={'/lamb.jpg'} alt='' width={500} height={300}/>
-              <div className='px-2 py-2 bg-white rounded-b-2xl border-b-black border-2' > 
+              <div className='px-2 py-2 bg-white rounded-b-2xl border-b-primary border-2' > 
                   <p className='py-3 text-black text-3xl font-semibold'>Auto Club</p>
                   <p className=' py-3 text-black'>Avenida SP, Mato Grosso, Brasil</p>
                   
-                  <button className='px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded '>Saiba mais</button>
+                  <button className='px-6 py-3 bg-primary hover:bg-primary-hover text-white rounded '>Saiba mais</button>
             </div>
             </div>
             
@@ -58,4 +58,4 @@ const OurShops = () => {
          )
                     }
 
-export default OurShops
+export default OurShops;

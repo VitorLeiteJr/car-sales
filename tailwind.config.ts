@@ -21,8 +21,9 @@ const config: Config = {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				DEFAULT: 'green',
+  				foreground: 'hsl(var(--primary-foreground))',
+				hover: 'rgb(239 68 68 / var(--tw-bg-opacity, 1))'
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',

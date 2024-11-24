@@ -3,7 +3,7 @@ import React from 'react'
 
 const CalltoActionSecond = () => {
   return (
-   <div className='px-56 bg-red-700'>
+   <div className='px-56 bg-primary'>
    <div className='flex justify-around items-center'>
 
     <div>

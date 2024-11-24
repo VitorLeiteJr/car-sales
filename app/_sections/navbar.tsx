@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import { Button } from '../_components/ui/button';
 
 const Navbar = () => {
   return (
@@ -12,21 +11,21 @@ const Navbar = () => {
     {/* Menu */}
     <ul className="flex space-x-6">
       <li>
-        <a href="#" className="hover:text-gray-300">Home</a>
+        <a href="#" className="hover:text-primary">Home</a>
       </li>
       <li>
-        <a href="#" className="hover:text-gray-300">Sobre</a>
+        <a href="#" className="hover:text-primary">Sobre</a>
       </li>
       <li>
-        <a href="#" className="hover:text-gray-300">Carros</a>
+        <a href="#" className="hover:text-primary">Carros</a>
       </li>
       <li>
-        <a href="#" className="hover:text-gray-300">Contato</a>
+        <a href="#" className="hover:text-primary">Contato</a>
       </li>
     </ul>
 
     {/* Button */}
-    <button className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded">
+    <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded">
       Login
     </button>
   </div>
