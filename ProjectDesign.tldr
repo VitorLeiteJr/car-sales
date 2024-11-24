@@ -378,7 +378,7 @@
 			"typeName": "shape"
 		},
 		{
-			"x": -30.571746826171818,
+			"x": -93.3822049967307,
 			"y": 306.76931287999605,
 			"rotation": 0,
 			"isLocked": false,
@@ -389,11 +389,11 @@
 			"props": {
 				"color": "black",
 				"size": "m",
-				"w": 718.578125,
+				"w": 781.3885831705588,
 				"text": "REF: https://www.kavak.com/br \nhttps://pro-theme.com/html/sokolcov/auto-club/home.html",
 				"font": "draw",
 				"textAlign": "start",
-				"autoSize": true,
+				"autoSize": false,
 				"scale": 1
 			},
 			"parentId": "page:page",
@@ -1827,9 +1827,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 652.2195456706552,
-			"y": 351.759775293132,
-			"lastActivityTimestamp": 1731934668653,
+			"x": -79.33068031616678,
+			"y": 347.60418437068927,
+			"lastActivityTimestamp": 1732295361311,
 			"meta": {}
 		},
 		{
@@ -1878,7 +1878,7 @@
 			"typeName": "instance"
 		},
 		{
-			"editingShapeId": "shape:bSL5sfJOHdSG7vtTWW6H6",
+			"editingShapeId": null,
 			"croppingShapeId": null,
 			"selectedShapeIds": [
 				"shape:bSL5sfJOHdSG7vtTWW6H6"
