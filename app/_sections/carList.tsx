@@ -7,18 +7,21 @@ const CarList = () => {
     
     <div className='px-56 py-9'>
       
-     <p className='text-4xl font-semibold py-9 text-black items-center justify-center flex'>Escolha seu próximo carro</p>
+     <div>
+     <p className='text-4xl font-semibold py-9 text-black flex items-center justify-center'>Escolha seu próximo carro</p>
 
+     </div>
+    <div className='justify-center items-center'>
       <Carousel
       opts={{
         align: "start",
       }}
-      className="w-ful"
     >
-      <CarouselContent>
+      <CarouselContent className='items-center justify-center'>
         {Array.from({ length: 5 }).map((_, index) => (
+          <div className='px-4 justify-center items-center'>
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <div className="p-1">
+            <div className="p-1 w-[500px] h-[300]">
             <Image src={'/lamb.jpg'} alt='' width={500} height={300} />
             
             <div className='px-2 py-2 bg-white rounded-b-2xl border-b-primary border-2' > 
@@ -35,14 +38,16 @@ const CarList = () => {
 
             </div>
           </CarouselItem>
+           </div>
         ))}
       </CarouselContent>
       <CarouselPrevious className='bg-black text-white hover:bg-primary'/>
       <CarouselNext className='bg-black text-white hover:bg-primary'/>
     </Carousel>
-
     </div>
-  )
+    </div>
+
+   )
 }
 
 export default CarList

@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const CallToAction = () => {
   return (
-    <div className='bg-primary flex justify-around items-center px-56 text-white'>
+    <div className='bg-primary flex justify-center items-center px-56 text-white'>
 
     <div>
         <p className='font-semibold text-5xl py-8'> Elegantes, robustos e completos!</p>

@@ -4,7 +4,7 @@ import React from 'react'
 const CalltoActionSecond = () => {
   return (
    <div className='px-56 bg-primary'>
-   <div className='flex justify-around items-center'>
+   <div className='flex justify-center items-center'>
 
     <div>
         <Image  src='/renderLamb.png' alt='' width={800} height={700} />

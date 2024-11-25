@@ -4,7 +4,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className='px-56'>
-      <div className='py-16 flex text-black font-semibold'>
+      <div className='py-16 flex text-black font-semibold justify-center items-center'>
         <div>
         <Image src={'/logo.png'} alt='' width={100} height={100}/>
         </div>
@@ -26,7 +26,6 @@ const Footer = () => {
             <p>Facebook</p>
             <p>Youtube</p>
             <p>WhatsApp</p>
-
           </div>
         </div>
       </div>
