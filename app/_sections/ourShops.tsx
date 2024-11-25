@@ -10,7 +10,7 @@ const OurShops = () => {
 
 
       <div className='justify-center items-center flex'>
-       <p className='text-4xl font-semibold py-9'>Visite uma de nossas lojas!</p>   
+       <p className='text-4xl font-semibold py-9'>Visite uma de nossas lojas</p>   
        </div>
        <div className='flex gap-3'>
             

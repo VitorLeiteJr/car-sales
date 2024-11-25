@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -11,10 +12,10 @@ const Navbar = () => {
     {/* Menu */}
     <ul className="flex space-x-6">
       <li>
-        <a href="#" className="hover:text-primary">Home</a>
+        <Link href={'/'} className="hover:text-primary">Home</Link>
       </li>
       <li>
-        <a href="#" className="hover:text-primary">Sobre</a>
+      <Link href={'/about'} className="hover:text-primary">Sobre</Link>
       </li>
       <li>
         <a href="#" className="hover:text-primary">Carros</a>
