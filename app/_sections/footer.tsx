@@ -4,6 +4,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className='px-56'>
+      <div className='container mx-auto'>
       <div className='py-16 flex text-black font-semibold justify-center items-center'>
         <div>
         <Image src={'/logo.png'} alt='' width={100} height={100}/>
@@ -33,8 +34,8 @@ const Footer = () => {
         <div className='flex justify-center items-center text-black font-semibold font-mono'>
           Copyright © 2024 - Auto Club
         </div>
-
-    </div>
+        </div>
+        </div>
   )
 }
 

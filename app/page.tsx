@@ -8,12 +8,14 @@ import CarList from "./_sections/carList";
 export default function Home() {
   return (
    <>
+   <div className="container min-h-full min-w-full">
    <Banner/>
    <CarList/>
    <QualitySection/>
    <CallToAction/>
    <OurShops/>
    <CalltoActionSecond/>
+   </div>
    </>
   );
 }
