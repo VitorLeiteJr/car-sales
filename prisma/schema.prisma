@@ -27,6 +27,6 @@ model Cars {
   absBrake     Boolean
   city          String
   type          String
-  price         Decimal                  @db.Decimal(10, 2) @default(0)
+  price         Int
   image         String @default("")
 }

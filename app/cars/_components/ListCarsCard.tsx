@@ -1,52 +1,27 @@
 "use client"
+import { Separator } from '@/app/_components/ui/separator'
 import React, { useEffect, useState } from 'react'
-import { Separator } from '../_components/ui/separator'
-import axios from 'axios'
-import ListCarsCard from './_components/ListCarsCard'
+import Image from 'next/image';
+import "@/app/_utils/types";
 
 
-const Cars = () => {
 
-  const [listCar, setListCar] = useState<CarType[]>([]);
-  const [mark, setMark] = useState("all");
+interface ListCarProps {
+    list: CarType[];
+}
 
-    const getMark = async (mark: string)=>{
-      setMark(mark);
-    }
+const ListCarsCard = ({list}: ListCarProps) => {
 
-    useEffect( () => {
+    const [ListCar,setListCar] = useState<CarType[]>(list);
     
-      const getCars = async ()=>{
-
-        const list = await axios.post("/api/list-cars",{mark});
-        setListCar(list.data.list);
-        
-      };
-      getCars();
-      
+    useEffect(()=>{
+      setListCar(list);
+    },[list])
     
-    },[mark]);
-    
-
   return (
-    <>
-    <div className="container mx-auto px-56 py-9">
 
-    <Separator className='bg-primary mb-2'/>
-    <div className='flex justify-center items-center gap-4 text-xl font-semibold'>
-
-        <p onClick={()=>{getMark('Chevrolet')}}>Chevrolet</p>
-        <p onClick={()=>{getMark('Honda')}}>Honda</p>
-
-
-
-
-    </div>
-    <Separator className='bg-primary mt-2 mb-9'/>
-
-    <div className='grid lg:grid-cols-3 gap-4'>
-      
-    { /**listCar && listCar.map((car,index)=>(
+      <>
+      {ListCar && ListCar.map((car,index)=>(
         
         <div key={index} className='border-2 border-b-primary rounded-b-3xl'>
           <div className='relative w-full h-56'>
@@ -85,17 +60,9 @@ const Cars = () => {
           </div>
         </div>
 
-))*/}
-
-
-    <ListCarsCard list={listCar}/>
-      
-   </div>
-      </div>
-    
-    {/*<CallToAction/>*/}
-    </>
+))}
+      </>
   )
 }
 
-export default Cars 
+export default ListCarsCard
