@@ -3,6 +3,7 @@ import { Separator } from '@/app/_components/ui/separator'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import "@/app/_utils/types";
+import { empty } from '@prisma/client/runtime/library';
 
 
 
@@ -18,14 +19,17 @@ const ListCarsCard = ({list}: ListCarProps) => {
       setListCar(list);
     },[list])
     
+    if(ListCar.length===0) return (<p>Nenhum carro encontrado</p>)
+
+
   return (
 
       <>
-      {ListCar && ListCar.map((car,index)=>(
+       {ListCar.map((car,index)=>(
         
         <div key={index} className='border-2 border-b-primary rounded-b-3xl'>
-          <div className='relative w-full h-56'>
-            <Image src={car.image} alt='car'className='objext-cover'fill/>
+          <div className='relative w-full h-48'>
+            <Image src={car.image} alt='car'className='object-cover'fill/>
           </div>
           <div className='px-4 mt-9'>
           <p className='font-semibold flex mt-2'>{car.name}</p>
