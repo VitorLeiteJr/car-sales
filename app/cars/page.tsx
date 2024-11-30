@@ -37,6 +37,10 @@ const Cars = () => {
 
         <p onClick={()=>{getMark('Chevrolet')}}>Chevrolet</p>
         <p onClick={()=>{getMark('Honda')}}>Honda</p>
+        <p onClick={()=>{getMark('Fiat')}}>Fiat</p>
+        <p onClick={()=>{getMark('Volkswagen')}}>Volkswagen</p>
+        <p onClick={()=>{getMark('all')}}>Todos</p>
+        
 
 
 
