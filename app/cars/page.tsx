@@ -1,20 +1,24 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { Separator } from '../_components/ui/separator'
-import ListCarsCard from '../_components/ListCarsCard'
+import { GetListCar } from '../_actions/get-list-cars'
+import CardComp from '../_components/card'
+import axios from 'axios'
 
 const Cars = () => {
 
-  const [mark, setMark] = useState("all");
+  const [list, setList] = useState<CarType[]>();
 
-    const getMark =  (mark: string)=>{
-      setMark(mark);
-      //console.log(mark);
+    const getMark =  async (mark: string)=>{
+      const recvList = await axios.post("/api/list-cars",{mark}); // OR I CAN USE THE SERVER ACTIONS
+      setList(recvList.data.list);
     }
-    useEffect( ()=>{
-      getMark(mark);
+
+    //getMark("all");
+    useEffect(()=>{
+      getMark("all");
     },[])
-    
+
     return (
     <>
     <div className="px-56 py-9">
@@ -31,11 +35,17 @@ const Cars = () => {
 
     </div>
     <Separator className='bg-primary mt-2 mb-9'/>
-
+      <div className='container mx-auto'>
     <div className='grid md:grid-cols-1 lg:grid-cols-3 2xl:grid-cols-3 gap-4'>
-
-    <ListCarsCard mark={mark}/>
+    
+   {list?.map((car,index)=>(
+    <div key={index}>
+    <CardComp car={list[index]}/>
+    </div>
+   ))}
+  
       
+   </div>
    </div>
       </div>
     

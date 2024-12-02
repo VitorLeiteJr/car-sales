@@ -5,7 +5,7 @@ import { GetListCar } from '../_actions/get-list-cars'
 
 const CarList = async() => {
 
-  const car = await GetListCar();
+  const car = await GetListCar("all");
 
   return (
     
