@@ -23,7 +23,7 @@ const Navbar = () => {
        <Link href={'/cars'} className='hover:text-primary'>Carros</Link>
       </li>
       <li>
-        <a href="#" className="hover:text-primary">Contato</a>
+        <Link href="/contact" className="hover:text-primary">Contato</Link>
       </li>
     </ul>
 
