@@ -17,7 +17,7 @@ const OurShops = () => {
             
             <div>
             <Image src={'/lamb.jpg'} alt='' width={500} height={300}/>
-              <div className='px-2 py-2 bg-white rounded-b-2xl border-b-primary border-2' > 
+              <div className='px-2 py-2 bg-white rounded-b-2xl hover:border-b-primary border-2' > 
                   <p className='py-3 text-black text-3xl font-semibold'>Auto Club</p>
                   <p className=' py-3 text-black'>Avenida SP, Mato Grosso, Brasil</p>
                   
@@ -27,7 +27,7 @@ const OurShops = () => {
 
             <div>
             <Image src={'/lamb.jpg'} alt='' width={500} height={300}/>
-              <div className='px-2 py-2 bg-white rounded-b-2xl border-b-primary border-2' > 
+              <div className='px-2 py-2 bg-white rounded-b-2xl hover:border-b-primary border-2' > 
                   <p className='py-3 text-black text-3xl font-semibold'>Auto Club</p>
                   <p className=' py-3 text-black'>Avenida SP, Mato Grosso, Brasil</p>
                   
@@ -37,7 +37,7 @@ const OurShops = () => {
 
             <div>
             <Image src={'/lamb.jpg'} alt='' width={500} height={300}/>
-              <div className='px-2 py-2 bg-white rounded-b-2xl border-b-primary border-2' > 
+              <div className='px-2 py-2 bg-white rounded-b-2xl hover:border-b-primary border-2' > 
                   <p className='py-3 text-black text-3xl font-semibold'>Auto Club</p>
                   <p className=' py-3 text-black'>Avenida SP, Mato Grosso, Brasil</p>
                   

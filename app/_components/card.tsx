@@ -7,7 +7,7 @@ interface cardProps{
 }
 const CardComp = ({car}: cardProps) => {
   return (
-    <div className='border-2 border-b-primary rounded-b-3xl h-auto w-auto gap-4 object-cover'>
+    <div className='border-2 hover:border-b-primary rounded-b-3xl h-auto w-auto gap-4 object-cover'>
           <div className='relative w-full h-48'>
             <Image src={car.image} alt='car'className='object-cover'fill/>
           </div>
