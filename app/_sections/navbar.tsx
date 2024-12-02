@@ -7,7 +7,9 @@ const Navbar = () => {
   <nav className="bg-white text-black font-semibold">
   <div className="container mx-auto flex items-center justify-between p-4">
     {/* Logo */}
+    <Link href={'/'}>
     <Image src={'/logo.png'} width={50} height={50} alt='logo'/>
+    </Link>
 
     {/* Menu */}
     <ul className="flex space-x-6">
