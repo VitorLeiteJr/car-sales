@@ -3,21 +3,24 @@ import { Separator } from '@/app/_components/ui/separator'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import "@/app/_utils/types";
-import { empty } from '@prisma/client/runtime/library';
-
-
-
+import axios from 'axios';
 interface ListCarProps {
-    list: CarType[];
+//list: CarType[];
+mark: string;
 }
 
-const ListCarsCard = ({list}: ListCarProps) => {
+const ListCarsCard = ({mark}: ListCarProps) => {
 
-    const [ListCar,setListCar] = useState<CarType[]>(list);
+    const [ListCar,setListCar] = useState<CarType[]>([]);
     
     useEffect(()=>{
-      setListCar(list);
-    },[list])
+      const getList = async() =>{
+        const list = await axios.post("/api/list-cars",{mark});
+          setListCar(list.data.list); 
+          console.log(list.data.list);
+      }
+      getList();
+    },[mark])
     
     if(ListCar.length===0) return (<p>Nenhum carro encontrado</p>)
 
@@ -27,7 +30,7 @@ const ListCarsCard = ({list}: ListCarProps) => {
       <>
        {ListCar.map((car,index)=>(
         
-        <div key={index} className='border-2 border-b-primary rounded-b-3xl'>
+        <div key={index} className='border-2 border-b-primary rounded-b-3xl h-auto w-auto gap-4 object-cover'>
           <div className='relative w-full h-48'>
             <Image src={car.image} alt='car'className='object-cover'fill/>
           </div>

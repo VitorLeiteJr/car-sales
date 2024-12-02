@@ -3,13 +3,13 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='px-56'>
-      <div className='container mx-auto'>
+    <div className='container mx-auto'>
+      <div className=' px-56'>
       <div className='py-16 flex text-black font-semibold justify-center items-center'>
-        <div>
+    
         <Image src={'/logo.png'} alt='' width={100} height={100}/>
-        </div>
-        <div className='px-32 flex'>
+   
+        <div className='px-24 flex'>
           <div>
           <p>Home</p>
           <p>Sobre</p>
