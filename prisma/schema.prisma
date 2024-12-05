@@ -29,4 +29,5 @@ model Cars {
   type          String
   price         Int
   image         String @default("")
+  slug          String @default("")
 }
