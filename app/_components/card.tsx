@@ -1,12 +1,14 @@
 import Image from 'next/image'
 import React from 'react'
 import { Separator } from './ui/separator'
+import Link from 'next/link';
 
 interface cardProps{
     car: CarType;
 }
 const CardComp = ({car}: cardProps) => {
   return (
+    <Link href={`/car/${car.slug}`}>
     <div className='border-2 hover:border-b-primary rounded-b-3xl h-auto w-auto gap-4 object-cover'>
           <div className='relative w-full h-48'>
             <Image src={car.image} alt='car'className='object-cover'fill/>
@@ -43,6 +45,7 @@ const CardComp = ({car}: cardProps) => {
        </div>
           </div>
         </div>
+        </Link>
   )
 }
 
