@@ -37,5 +37,6 @@ model Images {
   id      String      @id @default(uuid())
   src     String
   carId   String
+  main    Boolean @default(false)
   car     Cars      @relation(fields: [carId], references: [id])
 }
