@@ -1,7 +1,11 @@
-import { GetListCar } from '@/app/_actions/get-list-cars'
+
+import { GetSpeficCar } from '@/app/_actions/get-spefic-car'
 import { CardContent,Card } from '@/app/_components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/app/_components/ui/carousel'
 import { Separator } from '@/app/_components/ui/separator'
+import CarList from '@/app/_sections/carList'
+import CallToAction from '@/app/_sections/cta/cta'
+import CalltoActionSecond from '@/app/_sections/cta/cta-second'
 import Image from 'next/image'
 import React from 'react'
 
@@ -13,9 +17,14 @@ interface carProps {
 
 const Car = async ({params}: carProps) => {
 
-    const list = await GetListCar("all");
+    const selectedCar = await GetSpeficCar(params.slug);
+
+    if(selectedCar===null){
+      return;
+    }
 
   return (
+    <>
     <div className='px-56 py-9'>
       <div className='container mx-auto'>
 
@@ -23,43 +32,38 @@ const Car = async ({params}: carProps) => {
           <div className='w-3/4'>
           <Carousel className="w-full">
       <CarouselContent>
-        {list.map((car, index) => (
+        {/*selectedCar.map((car, index) => (*/}
          
-          <CarouselItem key={index}>
+          <CarouselItem>
            
               <Card>
                 <CardContent className="relative aspect-video items-center justify-center p-6">
                
-                 <Image src={car.image} layout='fill' alt='' className='object-cover'/>
+                 <Image src={selectedCar.image} layout='fill' alt='' className='object-cover'/>
                 
 
                 </CardContent>
               </Card>
           </CarouselItem>
-        ))}
+       {/* ))*/}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
 
-        <div className='grid grid-cols-2'>
-          <p className="">teste</p>
-          <p className="">teste</p>
-          <p className="">teste</p>
-        </div>
           </div>
 
           <div className='ml-20'>
          
                   <div className='flex gap-1'>
-                      <p className='text-2xl font-semibold'>{list[0].mark} </p>
-                      <p className='text-2xl font-semibold'> {list[0].name}</p>
+                      <p className='text-2xl font-semibold'>{selectedCar.mark} </p>
+                      <p className='text-2xl font-semibold'> {selectedCar.name}</p>
                   </div>
 
                   <div className='flex gap-1'>
-                      <p>{list[0].km}km</p>
+                      <p>{selectedCar.km}km</p>
                       <p>• </p>
-                      <p>{list[0].city}</p>
+                      <p>{selectedCar.city}</p>
                   </div>   
 
                   <Separator className='bg-primary mt-6'/>
@@ -68,7 +72,7 @@ const Car = async ({params}: carProps) => {
                   <p>Preço à vista</p>
                         <div className='flex'>
                         <p className='font-semibold py-2 '>R$</p>
-                        <p className='text-2xl font-bold ml-1'>{list[0].price},00</p>
+                        <p className='text-2xl font-bold ml-1'>{selectedCar.price},00</p>
                         </div>
                   </div> 
                   
@@ -78,11 +82,11 @@ const Car = async ({params}: carProps) => {
                          
                           <div>
                             <p>Ano</p>
-                            <p className='text-xl font-semibold'>{list[0].year}</p>
+                            <p className='text-xl font-semibold'>{selectedCar.year}</p>
                           </div>
                           <div>
                           <p>Transmissão</p>  
-                          <p className='text-xl font-semibold'>{list[0].transmission}</p>
+                          <p className='text-xl font-semibold'>{selectedCar.transmission}</p>
                           </div>  
 
                   </div>
@@ -94,17 +98,19 @@ const Car = async ({params}: carProps) => {
                                   
                               <div>
                                       <p>Versão</p>
-                                      <p className='text-xl font-semibold'>{list[0].version}</p>
+                                      <p className='text-xl font-semibold'>{selectedCar.version}</p>
                               </div>
 
                               <div>
                                 <p>Tração</p>
-                                <p className='text-xl font-semibold'>{list[0].traction} </p>
+                                <p className='text-xl font-semibold'>{selectedCar.traction} </p>
                               </div>
 
 
 
-                    </div>               
+                    </div>       
+
+                    <button className="px-8 py-2 bg-primary hover:bg-primary-hover text-white rounded mt-6 align-bottom whitespace-nowrap">Tenho interesse!</button>        
 
 
             
@@ -114,8 +120,10 @@ const Car = async ({params}: carProps) => {
 
       </div>
      
-     
     </div>
+    
+  <CarList/>
+  </>
   )
 }
 
