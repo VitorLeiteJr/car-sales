@@ -1,4 +1,5 @@
 
+import { GetImagesCar, GetMainImageCar } from '@/app/_actions/get-images-car'
 import { GetSpeficCar } from '@/app/_actions/get-spefic-car'
 import { CardContent,Card } from '@/app/_components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/app/_components/ui/carousel'
@@ -18,10 +19,16 @@ interface carProps {
 const Car = async ({params}: carProps) => {
 
     const selectedCar = await GetSpeficCar(params.slug);
+    const mainImage = await GetMainImageCar(params.slug,true);
+    const images = await GetImagesCar(params.slug);
+
+
+    console.log(images);
 
     if(selectedCar===null){
       return;
     }
+   
 
   return (
     <>
@@ -32,20 +39,22 @@ const Car = async ({params}: carProps) => {
           <div className='w-3/4'>
           <Carousel className="w-full">
       <CarouselContent>
-        {/*selectedCar.map((car, index) => (*/}
+        {images.map((car, index) => (
          
           <CarouselItem>
            
               <Card>
                 <CardContent className="relative aspect-video items-center justify-center p-6">
                
-                 <Image src={selectedCar.image} layout='fill' alt='' className='object-cover'/>
+                 <Image src={!mainImage ? 'https://eletropeldistribuidora.com.br/wp-content/uploads/2020/12/sem-foto.jpg' : mainImage.src} layout='fill' alt='' className='object-cover'/>
                 
 
                 </CardContent>
               </Card>
+
           </CarouselItem>
-       {/* ))*/}
+       )) 
+       }
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
