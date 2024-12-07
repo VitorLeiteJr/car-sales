@@ -30,4 +30,12 @@ model Cars {
   price         Int
   image         String @default("")
   slug          String @default("")
+  images        Images[]
+}
+
+model Images {
+  id      String      @id @default(uuid())
+  src     String
+  carId   String
+  car     Cars      @relation(fields: [carId], references: [id])
 }
