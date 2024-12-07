@@ -10,8 +10,9 @@ const Contact = () => {
             <div className='justify-center items-center flex'>
                 <div className='ml-10'>
                    <p className='text-4xl'>Precisa de ajuda? Estamos aqui   </p>
-                    <p className='mt-5 text-xl'>Respondemos todas as suas dúvidas de forma clara,</p><p>rápida e direta. Envie um WhatsApp para +55 11 3230-3881</p> 
-                </div>
+                    <p className='mt-5 text-xl'>Respondemos todas as suas dúvidas de forma clara,rápida e direta. Envie um WhatsApp para +55 11 3230-3881</p>
+                    <button className="justify-center items-center flex px-8 py-2 bg-primary hover:bg-primary-hover text-white rounded mt-6 align-bottom whitespace-nowrap">Clique aqui para entrar em contato!</button>        
+                    </div>
 
         <div className='ml-10'>
 
