@@ -39,21 +39,37 @@ const Car = async ({params}: carProps) => {
           <div className='w-3/4'>
           <Carousel className="w-full">
       <CarouselContent>
-        {images.map((car, index) => (
+        {images.length > 0 ? 
+        
+        (
+          images.map((img, index) => (
          
-          <CarouselItem>
-           
-              <Card>
-                <CardContent className="relative aspect-video items-center justify-center p-6">
-               
-                 <Image src={!mainImage ? 'https://eletropeldistribuidora.com.br/wp-content/uploads/2020/12/sem-foto.jpg' : mainImage.src} layout='fill' alt='' className='object-cover'/>
-                
+            <CarouselItem key={index}>
+             
+                <Card>
+                  <CardContent className="relative aspect-video items-center justify-center p-6">
+                 
+                   <Image src={img.src} layout='fill' alt='' className='object-cover'/>
+                  
+  
+                  </CardContent>
+                </Card>
+  
+            </CarouselItem>
+        )) 
+        )
+        : <CarouselItem>
+             
+        <Card>
+          <CardContent className="relative aspect-video items-center justify-center p-6">
+         
+           <Image src='https://eletropeldistribuidora.com.br/wp-content/uploads/2020/12/sem-foto.jpg' layout='fill' alt='' className='object-cover'/>
+          
 
-                </CardContent>
-              </Card>
+          </CardContent>
+        </Card>
 
-          </CarouselItem>
-       )) 
+    </CarouselItem>
        }
       </CarouselContent>
       <CarouselPrevious />
