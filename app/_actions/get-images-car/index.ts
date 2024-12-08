@@ -18,8 +18,6 @@ export const GetMainImageCar = async (slug: string, main?: boolean)=>{
                 carId: idCar?.id
             }
         });
-       // console.log(mainImage, idCar?.id);
-
 
         return mainImage;
     }
@@ -28,6 +26,8 @@ export const GetMainImageCar = async (slug: string, main?: boolean)=>{
 
 export const GetImagesCar = async (slug: string)=>{
 
+       
+         
     const idCar =await db.cars.findFirst({
         where:{
             slug:slug
