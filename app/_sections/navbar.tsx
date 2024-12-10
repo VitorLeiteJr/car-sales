@@ -1,9 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
+import DialogLogin from '../panel/_components/dialogLogin';
 
 const Navbar = () => {
   return (
+    <>
   <nav className="bg-white text-black font-semibold">
   <div className="container mx-auto flex items-center justify-between p-4">
     {/* Logo */}
@@ -33,6 +35,8 @@ const Navbar = () => {
     </button>
   </div>
 </nav>
+<DialogLogin show={true}/>
+</>
 );
 };
 

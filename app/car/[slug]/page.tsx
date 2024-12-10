@@ -23,8 +23,6 @@ const Car = async ({params}: carProps) => {
     const images = await GetImagesCar(params.slug);
 
 
-    console.log(images);
-
     if(selectedCar===null){
       return;
     }

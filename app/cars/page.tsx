@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { Separator } from '../_components/ui/separator'
-import { GetListCar } from '../_actions/get-list-cars'
 import CardComp from '../_components/card'
 import axios from 'axios'
 
