@@ -1,11 +1,24 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 import DialogLogin from '../panel/_components/dialogLogin';
 
 const Navbar = () => {
+
+  const [isShow, setIsShow] = useState(false);
+
+  const handleOpen = () =>{
+    setIsShow(true);
+  }
+
+  const handleClose = () =>{
+    setIsShow(false);
+  }
+  
+
   return (
-    <>
+    <div>
   <nav className="bg-white text-black font-semibold">
   <div className="container mx-auto flex items-center justify-between p-4">
     {/* Logo */}
@@ -29,14 +42,18 @@ const Navbar = () => {
       </li>
     </ul>
 
-    {/* Button */}
-    <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded">
+    <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded" onClick={handleOpen}>
       Login
     </button>
+
+     {isShow ? (
+      <DialogLogin handleClose={handleClose}/>
+     ) : (<></>)}
+
+
   </div>
 </nav>
-<DialogLogin show={true}/>
-</>
+</div>
 );
 };
 
