@@ -40,3 +40,10 @@ model Images {
   main    Boolean @default(false)
   car     Cars      @relation(fields: [carId], references: [id])
 }
+
+model User {
+  id         String     @id @default(uuid())
+  login      String
+  password   String
+  role       String
+}
