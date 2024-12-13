@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./_sections/navbar";
 import Footer from "./_sections/footer";
+import { Toaster } from "./_components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Car Sales",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Navbar/>
         {children}
         <Footer/>
+        <Toaster/>
       </body>
     </html>
   );
