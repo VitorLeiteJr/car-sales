@@ -8,6 +8,7 @@ interface cardProps{
 }
 const CardComp = ({car}: cardProps) => {
   return (
+    <>
     <Link href={`/car/${car.slug}`}>
     <div className='border-2 hover:border-b-primary rounded-b-3xl h-auto w-auto gap-4 object-cover'>
           <div className='relative w-full h-48'>
@@ -38,6 +39,7 @@ const CardComp = ({car}: cardProps) => {
                 487.298-319.835 536.035-1.334 1.587-3.318 2.591-5.539 2.591s-4.205-1.004-5.528-2.578l-.011-.013c-42.845-48.729-319.835-370.251-319.835-536.035C186.626 225.621 332.288 80 512 80zm0 162.545c-59.899 0-108.459 48.56-108.459 108.459S452.101 459.463 512 459.463c59.9 0 108.459-48.56 108.459-108.459v-.011.001c-.024-59.889-48.568-108.429-108.457-108.448H512z"></path></svg>
               </div>
 
+            
             <p className='text-xl mb-2'>{car.city}</p>
 
           </div>
@@ -46,6 +48,9 @@ const CardComp = ({car}: cardProps) => {
           </div>
         </div>
         </Link>
+
+        <p className='border-spacing-3 items-center flex justify-center rounded-r-md hover:text-primary-hover cursor-pointer'>Editar</p>
+        </>
   )
 }
 

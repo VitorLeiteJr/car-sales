@@ -7,8 +7,6 @@ import { Tabs, TabsContent } from '@/app/_components/ui/tabs'
 import axios from 'axios'
 import { useToast } from "@/hooks/use-toast"
 import { useRouter } from 'next/navigation'
-import { cookies } from 'next/headers'
-
 
 interface dialogLoginProps{
     handleClose: () => void;
@@ -44,12 +42,6 @@ const DialogLogin = ({handleClose}: dialogLoginProps) => {
         handleClose();
         localStorage.setItem("token",verify.data.response.token);
       }
-
-
-    
-
-      
-      console.log(verify.data);
       
     }
 
@@ -72,11 +64,11 @@ const DialogLogin = ({handleClose}: dialogLoginProps) => {
         <CardContent className="space-y-2">
           <div className="space-y-1">
             <Label htmlFor="login">Nome</Label>
-            <Input name="login" defaultValue="Paulo Carucio" required/>
+            <Input name="login" defaultValue="autoclub" required/>
           </div>
           <div className="space-y-1">
             <Label htmlFor="username">Senha</Label>
-            <Input type='password' name="password" defaultValue="@paulocarucio"required/>
+            <Input type='password' name="password" defaultValue="1"required/>
           </div>
         </CardContent>
         <CardFooter className='justify-between'>

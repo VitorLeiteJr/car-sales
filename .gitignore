@@ -15,7 +15,7 @@
 
 # production
 /build
-
+/app/api/test/route.ts
 # misc
 .DS_Store
 *.pem

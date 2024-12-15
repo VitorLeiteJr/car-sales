@@ -29,11 +29,8 @@ const PanelPage = () => {
    },[]);
 
     if(valide) return (
-      <div>
+      <div>admin page</div>
       
-         <p className='text-3xl font-bold text-black'>Panel Page</p>
-      
-    </div>
     );
 
 
