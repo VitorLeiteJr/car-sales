@@ -15,20 +15,32 @@ export const POST = async (req: NextRequest) =>{
             password: password as string
         }
     });
-        
+
     var response = {
 
         token: "notoken",
+        nickname: "",
         status: false
     };
 
     if(userData===null) return NextResponse.json({response});
 
 
-    const token = jwt.sign({id: userData?.id,password: userData?.password}, process.env.JWT_TOKEN as string, {expiresIn: 60*24});
+    const token = jwt.sign({id: userData?.id, password: userData?.password}, process.env.JWT_TOKEN as string, {expiresIn: 60*24});
+
+        await db.user.update({
+            where: {
+                id: userData?.id
+            },
+            data: {
+                tokenSession: token
+            }
+        });
+
 
      response = {
         token: token,
+        nickname: userData?.nickname,
         status: true
     }
 
