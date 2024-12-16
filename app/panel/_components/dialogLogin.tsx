@@ -41,6 +41,7 @@ const DialogLogin = ({handleClose}: dialogLoginProps) => {
         router.push("/panel");
         handleClose();
         localStorage.setItem("token",verify.data.response.token);
+        localStorage.setItem("nickname",verify.data.response.nickname);
       }
       
     }
