@@ -7,14 +7,26 @@ import axios from 'axios'
 const Cars = () => {
 
   const [list, setList] = useState<CarType[]>();
+  const [auth,setAuth] = useState<boolean>(false);
 
     const getMark =  async (mark: string)=>{
       const recvList = await axios.post("/api/list-cars",{mark}); // OR I CAN USE THE SERVER ACTIONS
       setList(recvList.data.list);
     }
 
+    const getAuth = async (token: string,nickname: string)=>{
+     
+      const checkAuth = await axios.post("/api/panel/validate-auth",{token, nickname});
+     setAuth(checkAuth.data.status);
+
+    }
+
     //getMark("all");
     useEffect(()=>{
+      const token = localStorage.getItem("token") as string;
+      const nickname = localStorage.getItem("nickname") as string;
+      getAuth(token,nickname);
+
       getMark("all");
     },[])
 
@@ -39,7 +51,7 @@ const Cars = () => {
     
    {list?.map((car,index)=>(
     <div key={index}>
-    <CardComp car={list[index]}/>
+    <CardComp car={list[index]} auth={auth}/>
     </div>
    ))}
   
