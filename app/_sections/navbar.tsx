@@ -1,21 +1,40 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 import DialogLogin from '../panel/_components/dialogLogin';
 
 const Navbar = () => {
 
-  const [isShow, setIsShow] = useState(false);
+  const [isShowLoginModal, setisShowLoginModal] = useState(false);
+  const [isShowLoginButton, setisShowLoginButton] = useState(false);
+  const [nickName,setNickName] = useState<string>("");
+
+
 
   const handleOpen = () =>{
-    setIsShow(true);
+    setisShowLoginModal(true);
   }
 
   const handleClose = () =>{
-    setIsShow(false);
+    setisShowLoginModal(false);
   }
-  
+
+
+    useEffect(()=>{
+    
+      const nickname = localStorage.getItem("nickname") as string;
+      setNickName(nickname);
+
+      if(nickName !== ""){
+        setisShowLoginButton(true);
+      }else{
+        setisShowLoginButton(false);
+      }
+
+    },[nickName])
+
+
 
   return (
     <div>
@@ -42,11 +61,13 @@ const Navbar = () => {
       </li>
     </ul>
 
-    <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded" onClick={handleOpen}>
+    {!isShowLoginButton ? (
+      <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded" onClick={handleOpen}>
       Login
     </button>
+    ) : (<p className='text-black font-semibold'>Olá, {nickName}</p>)}
 
-     {isShow ? (
+     {isShowLoginModal ? (
       <DialogLogin handleClose={handleClose}/>
      ) : (<></>)}
 
