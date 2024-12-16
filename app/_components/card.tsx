@@ -4,9 +4,10 @@ import { Separator } from './ui/separator'
 import Link from 'next/link';
 
 interface cardProps{
-    car: CarType;
+    car: CarType,
+    auth: boolean
 }
-const CardComp = ({car}: cardProps) => {
+const CardComp = ({car,auth}: cardProps) => {
   return (
     <>
     <Link href={`/car/${car.slug}`}>
@@ -49,8 +50,9 @@ const CardComp = ({car}: cardProps) => {
         </div>
         </Link>
 
-        <p className='border-spacing-3 items-center flex justify-center rounded-r-md hover:text-primary-hover cursor-pointer'>Editar</p>
-        </>
+        {auth  ? (<p className='border-spacing-3 items-center flex justify-center rounded-r-md hover:text-primary-hover cursor-pointer'>Editar</p>
+       ) : (<></>)}
+         </>
   )
 }
 
