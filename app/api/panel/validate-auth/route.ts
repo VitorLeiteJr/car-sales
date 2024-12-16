@@ -5,20 +5,25 @@ import { NextRequest, NextResponse } from "next/server";
 export const POST = async(req: NextRequest) =>{
 
     const body = await req.json();
-    const {token,login} = body;
+    const {token,nickname} = body;
 
    
                 try{    
                     
                     await jwt.verify(token, process.env.JWT_TOKEN as string);
-                    const checkUser = db.user.findFirst({
+                   const check =  await db.user.findFirst({
                         where: {
-                            login: login,
-                            tokenSession: token
+                            nickname: nickname,
+                            tokenSession: token,
+                            role: "administrator"
                         }
                     })
-
+                    
+                    if(check!==null) {
                     return NextResponse.json({status: true});
+                }else{
+                    return NextResponse.json({status: false});
+                }
 
 
                 }catch{
