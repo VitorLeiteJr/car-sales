@@ -45,6 +45,7 @@ model User {
   id         String     @id @default(uuid())
   login      String
   password   String
+  nickname   String @default("")
   tokenSession    String    @default("")
   role       String
 }
