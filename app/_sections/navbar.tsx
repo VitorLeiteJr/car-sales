@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 import DialogLogin from '../panel/_components/dialogLogin';
+import axios from 'axios';
 
 const Navbar = () => {
 
@@ -24,6 +25,16 @@ const Navbar = () => {
     useEffect(()=>{
     
       const nickname = localStorage.getItem("nickname") as string;
+      const token = localStorage.getItem("token") as string;
+
+      const verifyToken = async() =>{
+        const verify = await axios.post("api/panel/validate-auth",{token});
+        if(!verify.data.status){
+          setisShowLoginButton(false);
+        }
+      }
+      verifyToken();
+
       setNickName(nickname);
 
       if(nickName !== ""){
