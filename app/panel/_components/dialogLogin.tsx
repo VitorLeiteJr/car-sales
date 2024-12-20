@@ -6,17 +6,15 @@ import { Label } from '@/app/_components/ui/label'
 import { Tabs, TabsContent } from '@/app/_components/ui/tabs'
 import axios from 'axios'
 import { useToast } from "@/hooks/use-toast"
-import { redirect, useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 
 interface dialogLoginProps{
     handleClose: () => void;
+    rerender: () => void;
 }
 
-const DialogLogin = ({handleClose}: dialogLoginProps) => {
+const DialogLogin = ({handleClose,rerender}: dialogLoginProps) => {
 
     const { toast } = useToast();
-    const router = useRouter();
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
@@ -39,10 +37,12 @@ const DialogLogin = ({handleClose}: dialogLoginProps) => {
           title: "Sucesso",
           description: "Autenticado com sucesso",
         })
-        handleClose();
+       
         localStorage.setItem("token",verify.data.response.token);
         localStorage.setItem("nickname",verify.data.response.nickname);
-        router.push("/about");
+
+        handleClose();
+        rerender();
       }
 
      

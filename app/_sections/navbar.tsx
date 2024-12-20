@@ -9,10 +9,17 @@ import {  redirect, useRouter } from 'next/navigation';
 const Navbar = () => {
 
   const [isShowLoginModal, setisShowLoginModal] = useState(false);
-  const [isShowLoginButton, setisShowLoginButton] = useState(false);
+  const [loggedIn, setloggedIn] = useState(false);
   const [nickName,setNickName] = useState<string>("");
+  const [auth,setAuth] = useState<boolean>(false);
 
   const router = useRouter();
+
+
+  const rerenderNav = () =>{
+    router.refresh();
+  }
+
 
   const handleOpen = () =>{
     setisShowLoginModal(true);
@@ -24,29 +31,27 @@ const Navbar = () => {
   const verifyToken = async(token: string) =>{
     const verify = await axios.post("api/panel/validate-auth",{token});
     if(!verify.data.status){
-      setisShowLoginButton(false);
+      setloggedIn(false);
     }
-  
+    setAuth(verify.data.status);
+
   }
 
     useEffect(()=>{
     
       const nickname = localStorage.getItem("nickname") as string;
       const token = localStorage.getItem("token") as string;
-
-     
-    
-      console.log(nickname)
-
-      if(nickname !== ""){
-        setNickName(nickname);
-        setisShowLoginButton(true);
-      }else{
-        setisShowLoginButton(false);
-      }
       verifyToken(token);
 
-    },[nickName])
+      if(nickname !== null && auth){
+        setNickName(nickname);
+        setloggedIn(true);
+      }else{
+        setloggedIn(false);
+      }
+    
+
+    },[nickName,rerenderNav])
 
 
 
@@ -60,7 +65,7 @@ const Navbar = () => {
     </Link>
 
     {/* Menu */}
-    <ul className="flex space-x-6">
+    <ul className="flex space-x-6" onClick={rerenderNav}>
       <li>
         <Link href={'/'} className="hover:text-primary">Home</Link>
       </li>
@@ -75,14 +80,15 @@ const Navbar = () => {
       </li>
     </ul>
 
-    {!isShowLoginButton ? (
-      <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded" onClick={handleOpen}>
+    {loggedIn ? (
+      <p className='text-black font-semibold'>Olá, {nickName}</p>
+     
+    ) : ( <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded" onClick={handleOpen}>
       Login
-    </button>
-    ) : (<p className='text-black font-semibold'>Olá, {nickName}</p>)}
+    </button>)}
 
      {isShowLoginModal ? (
-      <DialogLogin handleClose={handleClose}/>
+      <DialogLogin handleClose={handleClose} rerender={rerenderNav}/>
      ) : (<></>)}
 
 
