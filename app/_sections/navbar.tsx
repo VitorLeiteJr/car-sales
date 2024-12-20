@@ -15,7 +15,14 @@ const Navbar = () => {
 
   const router = useRouter();
 
+const handleLogout = () =>{
 
+  localStorage.clear();
+  rerenderNav();
+  
+
+}
+ 
   const rerenderNav = () =>{
     router.refresh();
   }
@@ -81,7 +88,7 @@ const Navbar = () => {
     </ul>
 
     {loggedIn ? (
-      <p className='text-black font-semibold'>Olá, {nickName}</p>
+     <div className='flex'> <p className='text-black font-semibold'>{nickName},</p><p className="ml-1 text-primary hover:text-primary-hover cursor-pointer" onClick={handleLogout}>Logout</p></div>
      
     ) : ( <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded" onClick={handleOpen}>
       Login
