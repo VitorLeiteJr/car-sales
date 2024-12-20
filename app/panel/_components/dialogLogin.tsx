@@ -6,7 +6,8 @@ import { Label } from '@/app/_components/ui/label'
 import { Tabs, TabsContent } from '@/app/_components/ui/tabs'
 import axios from 'axios'
 import { useToast } from "@/hooks/use-toast"
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
 interface dialogLoginProps{
     handleClose: () => void;
@@ -36,15 +37,17 @@ const DialogLogin = ({handleClose}: dialogLoginProps) => {
         toast({
           variant: "default",
           title: "Sucesso",
-          description: "Credênciais incorretas",
+          description: "Autenticado com sucesso",
         })
-        router.push("/panel");
         handleClose();
         localStorage.setItem("token",verify.data.response.token);
         localStorage.setItem("nickname",verify.data.response.nickname);
+        router.push("/about");
       }
-      
+
+     
     }
+
 
   return (
     <>

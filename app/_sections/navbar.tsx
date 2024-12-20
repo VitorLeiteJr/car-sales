@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import DialogLogin from '../panel/_components/dialogLogin';
 import axios from 'axios';
+import {  redirect, useRouter } from 'next/navigation';
 
 const Navbar = () => {
 
@@ -11,7 +12,7 @@ const Navbar = () => {
   const [isShowLoginButton, setisShowLoginButton] = useState(false);
   const [nickName,setNickName] = useState<string>("");
 
-
+  const router = useRouter();
 
   const handleOpen = () =>{
     setisShowLoginModal(true);
@@ -20,28 +21,30 @@ const Navbar = () => {
   const handleClose = () =>{
     setisShowLoginModal(false);
   }
-
+  const verifyToken = async(token: string) =>{
+    const verify = await axios.post("api/panel/validate-auth",{token});
+    if(!verify.data.status){
+      setisShowLoginButton(false);
+    }
+  
+  }
 
     useEffect(()=>{
     
       const nickname = localStorage.getItem("nickname") as string;
       const token = localStorage.getItem("token") as string;
 
-      const verifyToken = async() =>{
-        const verify = await axios.post("api/panel/validate-auth",{token});
-        if(!verify.data.status){
-          setisShowLoginButton(false);
-        }
-      }
-      verifyToken();
+     
+    
+      console.log(nickname)
 
-      setNickName(nickname);
-
-      if(nickName !== ""){
+      if(nickname !== ""){
+        setNickName(nickname);
         setisShowLoginButton(true);
       }else{
         setisShowLoginButton(false);
       }
+      verifyToken(token);
 
     },[nickName])
 
