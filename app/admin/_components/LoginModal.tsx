@@ -7,12 +7,12 @@ import { Tabs, TabsContent } from '@/app/_components/ui/tabs'
 import axios from 'axios'
 import { useToast } from "@/hooks/use-toast"
 
-interface dialogLoginProps{
+interface loginModalProps{
     handleClose: () => void;
     rerender: () => void;
 }
 
-const DialogLogin = ({handleClose,rerender}: dialogLoginProps) => {
+const LoginModal = ({handleClose,rerender}: loginModalProps) => {
 
     const { toast } = useToast();
 
@@ -24,7 +24,7 @@ const DialogLogin = ({handleClose,rerender}: dialogLoginProps) => {
       const login = formData.get("login") as string;
       const password = formData.get("password") as string;
 
-      const verify = await axios.post("/api/panel/verify-credentials",{login, password});
+      const verify = await axios.post("/api/admin/verify-credentials",{login, password});
       if(!verify.data.response.status) {
         toast({
           variant: "destructive",
@@ -91,4 +91,4 @@ const DialogLogin = ({handleClose,rerender}: dialogLoginProps) => {
   )
 }
 
-export default DialogLogin
+export default LoginModal

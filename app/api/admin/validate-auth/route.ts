@@ -6,8 +6,6 @@ export const POST = async(req: NextRequest) =>{
 
     const body = await req.json();
     const {token,nickname} = body;
-
-    console.log(token,nickname);
    
                 try{    
                     

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { Separator } from '../_components/ui/separator'
 import CardComp from '../_components/card'
 import axios from 'axios'
-import { useRouter } from 'next/navigation'
 
 const Cars = () => {
 
@@ -17,8 +16,9 @@ const Cars = () => {
 
     const getAuth = async (token: string,nickname: string)=>{
      
-      const checkAuth = await axios.post("/api/panel/validate-auth",{token, nickname});
-     setAuth(checkAuth.data.status);
+      const checkAuth = await axios.post("/api/admin/validate-auth",{token, nickname});
+       setAuth(checkAuth.data.status);
+       
 
     }
 

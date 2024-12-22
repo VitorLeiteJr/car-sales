@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
-import DialogLogin from '../panel/_components/dialogLogin';
+import LoginModal from '../admin/_components/LoginModal';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
@@ -36,7 +36,7 @@ const handleLogout = () =>{
     setisShowLoginModal(false);
   }
   const verifyToken = async(token: string) =>{
-    const verify = await axios.post("api/panel/validate-auth",{token});
+    const verify = await axios.post("api/admin/validate-auth",{token});
     if(!verify.data.status){
       setloggedIn(false);
     }
@@ -95,7 +95,7 @@ const handleLogout = () =>{
     </button>)}
 
      {isShowLoginModal ? (
-      <DialogLogin handleClose={handleClose} rerender={rerenderNav}/>
+      <LoginModal handleClose={handleClose} rerender={rerenderNav}/>
      ) : (<></>)}
 
 
