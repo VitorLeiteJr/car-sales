@@ -1,13 +1,25 @@
+"use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { Separator } from './ui/separator'
 import Link from 'next/link';
+import EditCarModal from '../admin/_components/EditCarModal';
 
 interface cardProps{
     car: CarType,
     auth: boolean
 }
 const CardComp = ({car,auth}: cardProps) => {
+  const [showEditCarModal, setShowEditCarModal] = useState<boolean>(false);
+
+  const handleOpen = () =>{
+    setShowEditCarModal(true);
+  }
+
+  const handleClose = () =>{
+    setShowEditCarModal(false);
+  }
+
   return (
     <>
     <Link href={`/car/${car.slug}`}>
@@ -50,8 +62,10 @@ const CardComp = ({car,auth}: cardProps) => {
         </div>
         </Link>
 
-        {auth  ? (<p className='border-spacing-3 items-center flex justify-center rounded-r-md hover:text-primary-hover cursor-pointer'>Editar</p>
+        {auth  ? (<p onClick ={handleOpen}className='border-spacing-3 items-center flex justify-center rounded-r-md hover:text-primary-hover cursor-pointer'>Editar</p>
        ) : (<></>)}
+
+       {showEditCarModal ? (<EditCarModal car={car} handleClose={handleClose}/>) : (<></>)}
          </>
   )
 }
