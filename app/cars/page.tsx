@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Separator } from '../_components/ui/separator'
 import CardComp from '../_components/card'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 
 const Cars = () => {
 

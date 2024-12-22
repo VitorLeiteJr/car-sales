@@ -5,8 +5,6 @@ import { CardContent,Card } from '@/app/_components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/app/_components/ui/carousel'
 import { Separator } from '@/app/_components/ui/separator'
 import CarList from '@/app/_sections/carList'
-import CallToAction from '@/app/_sections/cta/cta'
-import CalltoActionSecond from '@/app/_sections/cta/cta-second'
 import Image from 'next/image'
 import React from 'react'
 

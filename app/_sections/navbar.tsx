@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import DialogLogin from '../panel/_components/dialogLogin';
 import axios from 'axios';
-import {  redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
 
