@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/app/_components/ui/input'
 import { Label } from '@/app/_components/ui/label'
 import { Tabs, TabsContent } from '@/app/_components/ui/tabs'
+import MultiImageUploader from '../imageUpload'
 
 
 interface editCarModalProps
@@ -45,7 +46,13 @@ const EditCarModal = ({handleClose,car}: editCarModalProps) => {
             <Label className='items-center flex mr-3' htmlFor="name">Km: </Label>
             <Input name="name" defaultValue={car.km} required/>
           </div>
-         
+
+          <div className='space-y-1'>
+
+          <MultiImageUploader/>
+
+          </div>
+
         </CardContent>
         <CardFooter className='justify-between'>
           <Button type='submit'className='mb-5'>Alterar</Button>
