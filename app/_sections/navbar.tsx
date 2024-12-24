@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
-import LoginModal from '../admin/_components/LoginModal';
+import LoginModal from '../admin/_components/modal/LoginModal';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { Separator } from './ui/separator'
 import Link from 'next/link';
-import EditCarModal from '../admin/_components/EditCarModal';
+import EditCarModal from '../admin/_components/modal/EditCarModal';
 
 interface cardProps{
     car: CarType,
