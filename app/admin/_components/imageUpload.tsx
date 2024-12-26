@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+"use client"
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
-interface ImagePreview {
-  id: number;
-  src: string;
+interface MultiImageUploaderProps{
+  id: string;
 }
 
-const MultiImageUploader: React.FC = () => {
+const MultiImageUploader = ({id}: MultiImageUploaderProps) => {
+
   const [images, setImages] = useState<ImagePreview[]>([]);
+
+  const getImages = async() => {
+        
+    const imgs = await axios.post("/api/images",{id});
+    setImages(imgs.data.images);
+     
+   }
+
+   useEffect(()=>{
+    getImages();
+   },[])
+
+
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
