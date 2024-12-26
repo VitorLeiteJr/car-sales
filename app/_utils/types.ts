@@ -18,4 +18,9 @@ type CarType = {
     image: string;
     slug: string;
   
-  }
+  };
+
+  type ImagePreview = {
+    id: number;
+    src: string;
+  };
