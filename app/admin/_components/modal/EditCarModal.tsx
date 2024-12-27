@@ -14,7 +14,6 @@ interface editCarModalProps
 {
     handleClose: () => void,
     car: CarType
-
 }
 
 
