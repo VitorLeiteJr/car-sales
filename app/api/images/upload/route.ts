@@ -5,6 +5,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { NextRequest, NextResponse } from 'next/server';
 import { IncomingMessage } from 'http';
+import { db } from '@/app/_lib/prisma';
 
 // Ensure the public/uploads directory exists
 const uploadDir = path.join(process.cwd(), 'public/uploads');
@@ -34,6 +35,15 @@ export const POST = async(req: NextRequest)=>{
   
     try {
       await fs.writeFile(filePath, buffer);
+      await db.images.createMany({
+        data:[
+          {
+            src: `/uploads/${file.name}`,
+            carId: id,
+            main: false
+          },
+        ]
+      })
       return NextResponse.json({ message: 'File uploaded successfully', fileUrl: `/uploads/${file.name}` });
     } catch (error) {
       console.error(error);
