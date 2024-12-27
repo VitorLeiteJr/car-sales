@@ -31,6 +31,8 @@ const MultiImageUploader = ({id}: MultiImageUploaderProps) => {
 
     const formData = new FormData();
     formData.append('file', files![0]);
+    formData.append('id', id);
+
 
     const uploadLocal = await axios.post("/api/images/upload",formData);
 

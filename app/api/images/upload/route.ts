@@ -21,10 +21,13 @@ export const POST = async(req: NextRequest)=>{
 
     const formData = await req.formData();
     const file = formData.get('file') as File;
+    const id = formData.get('id') as string;
+
   
     if (!file) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
     }
+    
   
     const buffer = Buffer.from(await file.arrayBuffer());
     const filePath = path.join(uploadDir, file.name);
