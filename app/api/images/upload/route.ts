@@ -35,7 +35,7 @@ export const POST = async(req: NextRequest)=>{
   
     try {
       await fs.writeFile(filePath, buffer);
-      await db.images.createMany({
+    const insert=  await db.images.createManyAndReturn({
         data:[
           {
             src: `/uploads/${file.name}`,
@@ -44,7 +44,9 @@ export const POST = async(req: NextRequest)=>{
           },
         ]
       })
-      return NextResponse.json({ message: 'File uploaded successfully', fileUrl: `/uploads/${file.name}` });
+      console.log(insert[0].id);
+      const returnId = insert[0].id;
+      return NextResponse.json({returnId});
     } catch (error) {
       console.error(error);
       return NextResponse.json({ error: 'Failed to save file' }, { status: 500 });

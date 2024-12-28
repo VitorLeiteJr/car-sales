@@ -35,12 +35,14 @@ const MultiImageUploader = ({id}: MultiImageUploaderProps) => {
 
 
     const uploadLocal = await axios.post("/api/images/upload",formData);
+    //console.log(uploadLocal.data.returnId);
+
 
     if (files) {
       const newImages = Array.from(files).map((file, index) => {
 
         
-        const id = new Date().getTime() + index; 
+        const id = uploadLocal.data.returnId; 
         const src = URL.createObjectURL(file);
 
 
@@ -52,6 +54,7 @@ const MultiImageUploader = ({id}: MultiImageUploaderProps) => {
   };
 
   const handleRemoveImage = (id: number) => {
+    console.log(id);
     setImages((prevImages) => prevImages.filter((image) => image.id !== id));
   };
 
