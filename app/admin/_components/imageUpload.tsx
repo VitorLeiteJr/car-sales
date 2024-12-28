@@ -53,9 +53,11 @@ const MultiImageUploader = ({id}: MultiImageUploaderProps) => {
     }
   };
 
-  const handleRemoveImage = (id: number) => {
-    console.log(id);
+  const handleRemoveImage = async (id: number) => {
     setImages((prevImages) => prevImages.filter((image) => image.id !== id));
+   const deleteImage = await axios.post("/api/images/delete",{id});
+    if(!deleteImage.data.status) alert("error");
+  
   };
 
   return (
