@@ -19,8 +19,11 @@ interface editCarModalProps
 
 const EditCarModal = ({handleClose,car}: editCarModalProps) => {
 
+  const [message,setMessage] = useState<string>("");
+
+
   const handleEditCarModal = async(e: FormEvent<HTMLFormElement>) => {
-       e.preventDefault();
+          e.preventDefault();
        
        const formData = new FormData(e.currentTarget);
        const id = formData.get("id") as string;
@@ -29,9 +32,7 @@ const EditCarModal = ({handleClose,car}: editCarModalProps) => {
        const km = formData.get("km") as string;
 
        const updateCar = await axios.post("/api/admin/update-car",{id,name,year,km});
-       console.log(updateCar.data.status);
-       if(!updateCar.data.status)alert("Erro!");
-
+       setMessage(updateCar.data.message);
 
   }
 
@@ -76,7 +77,10 @@ const EditCarModal = ({handleClose,car}: editCarModalProps) => {
 
         </CardContent>
         <CardFooter className='justify-between'>
-          <Button type='submit'className='mb-5'>Alterar</Button>
+          <Button type='submit' className='mb-5'>Alterar</Button>
+          <p>
+            {message}
+          </p>
         </CardFooter> 
         </form>
       </Card>

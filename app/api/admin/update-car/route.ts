@@ -6,9 +6,10 @@ export const POST = async(req: NextRequest) =>{
     const body = await req.json();
     const {id,name,year,km} = body;   
 
+
     try {
 
-      const updateCar =  await db.cars.update({
+     await db.cars.update({
 
             where:{
                 id:id
@@ -19,11 +20,12 @@ export const POST = async(req: NextRequest) =>{
                 km:parseInt(km)
             }   
                         });
-           return NextResponse.json({status: true});             
+
+           return NextResponse.json({status: true, message: "Informações atualizadas com sucesso"});             
 
     }catch{
 
-        return NextResponse.json({status: false});
+        return NextResponse.json({status: false, message: "Erro ao atualizar informações"});
     }
 
                                     }
