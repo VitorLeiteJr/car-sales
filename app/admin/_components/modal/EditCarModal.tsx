@@ -30,8 +30,15 @@ const EditCarModal = ({handleClose,car}: editCarModalProps) => {
        const name = formData.get("name") as string;
        const year = formData.get("year") as string;
        const km = formData.get("km") as string;
+       const mark = formData.get("mark") as string;
+       const type = formData.get("type") as string;
+       const transmission = formData.get("transmission") as string;
+       const fuel = formData.get("fuel") as string;
+       const slug = formData.get("slug") as string; 
+       const price = formData.get("price") as string;
 
-       const updateCar = await axios.post("/api/admin/update-car",{id,name,year,km});
+
+       const updateCar = await axios.post("/api/admin/update-car",{id,name,year,km,mark,type,transmission,fuel,slug,price});
        setMessage(updateCar.data.message);
 
   }

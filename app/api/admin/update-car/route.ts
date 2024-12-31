@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export const POST = async(req: NextRequest) =>{
 
     const body = await req.json();
-    const {id,name,year,km} = body;   
+    const {id,name,year,km,mark,type,transmission,fuel,slug,price} = body;   
 
 
     try {
@@ -17,7 +17,14 @@ export const POST = async(req: NextRequest) =>{
             data:{
                 name:name,
                 year:year,
-                km:parseInt(km)
+                km:parseInt(km),
+                mark:mark,
+                type:type,
+                transmission:transmission,
+                fuel:fuel,
+                slug:slug,
+                price:parseInt(price)
+                
             }   
                         });
 
