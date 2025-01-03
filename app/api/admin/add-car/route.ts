@@ -1,5 +1,5 @@
 import { db } from "@/app/_lib/prisma";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async(req: NextRequest) =>{
 
@@ -7,9 +7,9 @@ export const POST = async(req: NextRequest) =>{
     const {name,year,km,mark,type,transmission,fuel,slug,price,version, traction, doors, absBrake, city,srcImage } = body;   
 
 
-    try{
+   // try{
 
-        await db.cars.create({
+       const insertCar = await db.cars.create({
             data:{
                 name:name,
                 year:year,
@@ -23,16 +23,21 @@ export const POST = async(req: NextRequest) =>{
                 version:version,
                 traction:traction,
                 doors:doors,
-                absBrake:absBrake,
+                absBrake:true,
                 city:city,
                 image: srcImage
 
             }
-        })
+        });
 
-    }catch{
+        console.log(insertCar);
 
-    }
+        return NextResponse.json({status: true});
+
+    //}catch{
+      //  return NextResponse.json({status: false});
+
+    //}
 
 
 }

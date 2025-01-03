@@ -9,18 +9,34 @@ import {  Sheet,
     SheetTrigger } from "@/app/_components/ui/sheet";
 import { FaCar } from "react-icons/fa";
 import MainImageUpload from "./mainImageUpload";
+import axios from "axios";
 
 const SheetAddCar = () => {
 
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const name = formData.get("name") as string;
         const slug = formData.get("slug") as string;
         const city = formData.get("city") as string;
         const srcImage = formData.get("srcImage") as string;
-        console.log(name,slug,city,srcImage);
+        const year = formData.get("year") as string;
+        const km = formData.get("km") as string;
+        const mark = formData.get("mark") as string;
+        const type = formData.get("type") as string;
+        const transmission = formData.get("transmission") as string;
+        const fuel = formData.get("fuel") as string;
+        const price = formData.get("price") as string;
+        const version = formData.get("version") as string;
+        const traction = formData.get("traction") as string;
+        const doors = formData.get("doors") as string;
+        const asbBrake = formData.get("asbBrake") as string;
+
+        console.log(name,slug,city,srcImage,year,km,mark,type,transmission,fuel,srcImage);
+
+        const addCar = await axios.post("/api/admin/add-car",{name,slug,city,srcImage,year,km,mark,type,transmission,fuel,price,version,traction,doors,asbBrake});
+        console.log(addCar.data);
 
     }   
 
@@ -48,11 +64,11 @@ const SheetAddCar = () => {
           </div>
            <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">year: </Label>
-            <Input name="year" defaultValue="Year" required/>
+            <Input name="year" defaultValue="1992" required/>
           </div> 
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">km: </Label>
-            <Input name="km" defaultValue="km" required/>
+            <Input name="km" defaultValue="212121" required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">mark: </Label>
@@ -76,7 +92,7 @@ const SheetAddCar = () => {
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">price: </Label>
-            <Input name="price" defaultValue="price" required/>
+            <Input name="price" defaultValue="80000" required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Versao: </Label>
@@ -88,7 +104,7 @@ const SheetAddCar = () => {
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Portas: </Label>
-            <Input name="doors" defaultValue="doors" required/>
+            <Input name="doors" defaultValue="4" required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Abs: </Label>
