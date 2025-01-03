@@ -7,7 +7,7 @@ import { Label } from '@/app/_components/ui/label'
 import { Tabs, TabsContent } from '@/app/_components/ui/tabs'
 import MultiImageUploader from '../imageUpload'
 import axios from 'axios'
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useState } from 'react'
 
 
 interface editCarModalProps

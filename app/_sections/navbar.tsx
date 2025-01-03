@@ -5,6 +5,7 @@ import Link from 'next/link';
 import LoginModal from '../admin/_components/modal/LoginModal';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import SheetUser from '../admin/_components/sheetUser';
 
 const Navbar = () => {
 
@@ -66,11 +67,11 @@ const handleLogout = () =>{
     <div>
   <nav className="bg-white text-black font-semibold">
   <div className="container mx-auto">
-    <div className='items-center flex justify-between'>
+    <div className='items-center flex justify-between px-5 py-2'>
     <div className='flex'>
     {/* Logo */}
     <Link href={'/'}>
-    <Image src={'/logo.png'} width={50} height={50} alt='logo'/>
+    <Image src={'/logo.png'} width={70} height={70} alt='logo'/>
     </Link>
     </div>
     <div className='flex items-center'>
@@ -91,13 +92,10 @@ const handleLogout = () =>{
     </ul>
     </div>
    
-    <div className=''>
+    <div>
     {loggedIn ? (
-     <div className='flex'>
-      <p className='text-primary hover:text-primary-hover cursor-pointer mr-5'>Adicionar Carro</p>
-       <p className='text-black font-semibold'>{nickName},</p>
-       <p className="ml-1 text-primary hover:text-primary-hover cursor-pointer" onClick={handleLogout}>Logout</p>
-       </div>
+
+       <SheetUser handleLogout={handleLogout} nickname={nickName} />
      
     ) : ( <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded" onClick={handleOpen}>
       Login
