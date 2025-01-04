@@ -6,6 +6,7 @@ import LoginModal from '../admin/_components/modal/LoginModal';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import SheetUser from '../admin/_components/sheetUser';
+import SheetSignIn from '../admin/_components/sheetSignIn';
 
 const Navbar = () => {
 
@@ -97,9 +98,13 @@ const handleLogout = () =>{
 
        <SheetUser handleLogout={handleLogout} nickname={nickName} />
      
-    ) : ( <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded" onClick={handleOpen}>
-      Login
-    </button>)}
+    ) : ( 
+    // <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded" onClick={handleOpen}>
+    //   Login
+    // </button>
+    <SheetSignIn handleClose={handleClose} rerender={rerenderNav}/>
+  
+  )}
     </div> 
      
 

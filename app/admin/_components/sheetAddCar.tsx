@@ -51,7 +51,7 @@ const SheetAddCar = () => {
                 </div> 
        
   </SheetTrigger>
-  <SheetContent side={"left"} className= "bg-white text-black max-h-screen overflow-y-scroll">
+  <SheetContent side={"right"} className= "bg-white text-black max-h-screen overflow-y-scroll">
     <SheetHeader>
       <SheetTitle >Adicionar um novo carro</SheetTitle>
       <SheetDescription>
