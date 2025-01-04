@@ -42,7 +42,7 @@ const SheetAddCar = () => {
 
 
   return (
-    <Sheet>
+        <Sheet>
   <SheetTrigger>
  
                 <div className="flex hover:text-primary-hover cursor-pointer">
@@ -51,13 +51,14 @@ const SheetAddCar = () => {
                 </div> 
        
   </SheetTrigger>
-  <SheetContent className= "bg-white text-black">
+  <SheetContent side={"left"} className= "bg-white text-black max-h-screen overflow-y-scroll">
     <SheetHeader>
       <SheetTitle >Adicionar um novo carro</SheetTitle>
       <SheetDescription>
       Adicione as informações solicitadas para adicionar um novo carro
       </SheetDescription>
-       <form onSubmit={handleSubmit} className="space-y-2">
+      
+       <form onSubmit={handleSubmit} className="space-y-2 ">
       <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Nome: </Label>
             <Input name="name" defaultValue="name" required/>
