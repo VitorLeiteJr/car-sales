@@ -67,7 +67,10 @@ const SheetSignIn = ({handleClose,rerender}: sheetSignInProps) => {
    
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">Login</Button>
+        
+       <button className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded">
+       Login
+     </button>
       </SheetTrigger>
       <SheetContent className="bg-white">
       <form onSubmit={handleFormSubmit}>
