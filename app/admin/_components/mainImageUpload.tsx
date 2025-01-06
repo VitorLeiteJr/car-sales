@@ -5,16 +5,32 @@ import { FaUpload } from "react-icons/fa";
 
 
 
-//this script was generate by chatGPT
+//this script was generate by chatGPT and edited by vitor
+
+interface MultiImageUploaderProps{
+  id: string;
+};
 
 
-const MainImageUpload = () => {
+
+const MainImageUpload = ({id}: MultiImageUploaderProps) => {
 
   const [images, setImages] = useState<ImagePreview[]>([]);
   const [srcImage, setSrcImage] = useState<string>("");
 
 
 
+  const getImages = async() => {
+        
+    const imgs = await axios.post("/api/images",{id});
+    setImages(imgs.data.mainImage);
+    console.log(imgs.data.mainImage)
+     
+   };
+
+   useEffect(()=>{
+    getImages();
+   },[]);
 
   const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     

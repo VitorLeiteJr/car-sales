@@ -5,6 +5,7 @@ import { Separator } from './ui/separator'
 import Link from 'next/link';
 import EditCarModal from '../admin/_components/modal/EditCarModal';
 import { FaRegEdit } from "react-icons/fa";
+import SheetEditCar from '../admin/_components/sheetEditCar';
 
 interface cardProps{
     car: CarType,
@@ -63,25 +64,29 @@ const CardComp = ({car,auth}: cardProps) => {
             
           
       
-            {
-        auth  ? (
-          <p onClick ={handleOpen}className='border-spacing-3 items-center flex justify-end
-           rounded-r-md hover:text-primary-hover cursor-pointer'><FaRegEdit size={16} /></p>
-       ) : (<></>)
-       }
     
           </div>
 
        </div>
+
+       
           </div>
         </div>
         </Link>
 
+        {
+        auth  ? (
+          // <p onClick ={handleOpen}className='border-spacing-3 items-center flex justify-end
+          //  rounded-r-md hover:text-primary-hover cursor-pointer'><FaRegEdit size={16} /></p>
+          <SheetEditCar car={car}/>
+       ) : (<></>)
+       }
+
         
 
-       {showEditCarModal ? (
+       {/* {showEditCarModal ? (
         <EditCarModal car={car} handleClose={handleClose}/>
-        ) : (<></>)}
+        ) : (<></>)} */}
          </>
   )
 }

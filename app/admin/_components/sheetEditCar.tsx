@@ -7,12 +7,17 @@ import {  Sheet,
     SheetHeader,
     SheetTitle,
     SheetTrigger } from "@/app/_components/ui/sheet";
-import { FaCar, FaRegEdit } from "react-icons/fa";
+import {  FaRegEdit } from "react-icons/fa";
 import MainImageUpload from "./mainImageUpload";
 import axios from "axios";
+import MultiImageUploader from "./imageUpload";
 
-const SheetAddCar = () => {
+interface sheetEditCarProps {
+    car: CarType
+}
 
+
+const SheetEditCar = ({car}: sheetEditCarProps) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -20,7 +25,6 @@ const SheetAddCar = () => {
         const name = formData.get("name") as string;
         const slug = formData.get("slug") as string;
         const city = formData.get("city") as string;
-        const srcImage = formData.get("srcImage") as string;
         const year = formData.get("year") as string;
         const km = formData.get("km") as string;
         const mark = formData.get("mark") as string;
@@ -33,9 +37,9 @@ const SheetAddCar = () => {
         const doors = formData.get("doors") as string;
         const asbBrake = formData.get("asbBrake") as string;
 
-        console.log(name,slug,city,srcImage,year,km,mark,type,transmission,fuel,srcImage);
+        console.log(name,slug,city,year,km,mark,type,transmission,fuel);
 
-        const addCar = await axios.post("/api/admin/add-car",{name,slug,city,srcImage,year,km,mark,type,transmission,fuel,price,version,traction,doors,asbBrake});
+        const addCar = await axios.post("/api/admin/add-car",{name,slug,city,year,km,mark,type,transmission,fuel,price,version,traction,doors,asbBrake});
         console.log(addCar.data);
 
     }   
@@ -47,7 +51,6 @@ const SheetAddCar = () => {
  
                 <div className="flex hover:text-primary-hover cursor-pointer">
                 <FaRegEdit size={16} />
-                <p className="ml-1">Adicionar novo carro</p>
                 </div> 
        
   </SheetTrigger>
@@ -61,63 +64,66 @@ const SheetAddCar = () => {
        <form onSubmit={handleSubmit} className="space-y-2 ">
       <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Nome: </Label>
-            <Input name="name" defaultValue="name" required/>
+            <Input name="name" defaultValue={car.name} required/>
           </div>
            <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">year: </Label>
-            <Input name="year" defaultValue="1992" required/>
+            <Input name="year" defaultValue={car.year} required/>
           </div> 
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">km: </Label>
-            <Input name="km" defaultValue="212121" required/>
+            <Input name="km" defaultValue={car.km} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">mark: </Label>
-            <Input name="mark" defaultValue="mark" required/>
+            <Input name="mark" defaultValue={car.mark} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Tipo: </Label>
-            <Input name="type" defaultValue="type" required/>
+            <Input name="type" defaultValue={car.type} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Transmissao: </Label>
-            <Input name="transmission" defaultValue="transmission" required/>
+            <Input name="transmission" defaultValue={car.transmission} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Combustivel: </Label>
-            <Input name="fuel" defaultValue="fuel" required/>
+            <Input name="fuel" defaultValue={car.fuel} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">slug: </Label>
-            <Input name="slug" defaultValue="slug" required/>
+            <Input name="slug" defaultValue={car.slug} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">price: </Label>
-            <Input name="price" defaultValue="80000" required/>
+            <Input name="price" defaultValue={car.price} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Versao: </Label>
-            <Input name="version" defaultValue="version" required/>
+            <Input name="version" defaultValue={car.version} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Trassao: </Label>
-            <Input name="traction" defaultValue="traction" required/>
+            <Input name="traction" defaultValue={car.traction} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Portas: </Label>
-            <Input name="doors" defaultValue="4" required/>
+            <Input name="doors" defaultValue={car.doors} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Abs: </Label>
-            <Input name="asbBrake" defaultValue="true" required/>
+            <Input name="asbBrake" defaultValue={String(car.absBrake)} required/>
           </div>
           <div className="space-y-1 ">
             <Label className='items-center flex mr-3' htmlFor="name">Cidade/Estado: </Label>
-            <Input name="city" defaultValue="Mococa" required/>
+            <Input name="city" defaultValue={car.city} required/>
           </div>
           
           <div className="space-y-1">
-                <MainImageUpload id="main"/>
+                <MainImageUpload id={car.id}/>
+          </div>
+          <div>
+          <MultiImageUploader id={car.id}/>
           </div>
 
           <button type="submit" className="px-4 py-2 bg-primary hover:bg-primary-hover text-white rounded"> Enviar</button>
@@ -128,4 +134,4 @@ const SheetAddCar = () => {
   )
 }
 
-export default SheetAddCar
+export default SheetEditCar
