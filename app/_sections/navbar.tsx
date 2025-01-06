@@ -38,7 +38,7 @@ const handleLogout = () =>{
     setisShowLoginModal(false);
   }
   const verifyToken = async(token: string) =>{
-    const verify = await axios.post("api/admin/validate-auth",{token});
+    const verify = await axios.post("http://localhost:3000/api/admin/validate-auth",{token});
     if(!verify.data.status){
       setloggedIn(false);
     }
