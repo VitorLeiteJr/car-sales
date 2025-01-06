@@ -38,7 +38,7 @@ const EditCarModal = ({handleClose,car}: editCarModalProps) => {
        const price = formData.get("price") as string;
 
 
-       const updateCar = await axios.post("/api/admin/update-car",{id,name,year,km,mark,type,transmission,fuel,slug,price});
+       const updateCar = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/admin/update-car",{id,name,year,km,mark,type,transmission,fuel,slug,price});
        setMessage(updateCar.data.message);
 
   }

@@ -42,7 +42,7 @@ const SheetEditCar = ({car}: sheetEditCarProps) => {
 
         console.log(name,slug,city,year,km,mark,type,transmission,fuel);
 
-        const addCar = await axios.post("/api/admin/update-car",{name,slug,city,year,km,mark,type,transmission,fuel,price,version,traction,doors,asbBrake,id});
+        const addCar = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/admin/update-car",{name,slug,city,year,km,mark,type,transmission,fuel,price,version,traction,doors,asbBrake,id});
         //console.log(addCar.data);
 
         if(!addCar.data.status){

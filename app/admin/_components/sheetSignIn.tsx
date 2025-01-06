@@ -38,7 +38,7 @@ const SheetSignIn = ({handleClose,rerender}: sheetSignInProps) => {
       const login = formData.get("login") as string;
       const password = formData.get("password") as string;
 
-      const verify = await axios.post("/api/admin/verify-credentials",{login, password});
+      const verify = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/admin/verify-credentials",{login, password});
       if(!verify.data.response.status) {
         toast({
           variant: "destructive",

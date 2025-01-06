@@ -15,7 +15,7 @@ const ListCarsCard = ({mark}: ListCarProps) => {
     
     useEffect(()=>{
       const getList = async() =>{
-        const list = await axios.post("/api/list-cars",{mark});
+        const list = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/list-cars",{mark});
           setListCar(list.data.list); 
           console.log(list.data.list);
       }

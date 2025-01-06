@@ -10,13 +10,13 @@ const Cars = () => {
   const [auth,setAuth] = useState<boolean>(false);
 
     const getMark =  async (mark: string)=>{
-      const recvList = await axios.post("/api/list-cars",{mark}); // OR I CAN USE THE SERVER ACTIONS
+      const recvList = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/list-cars",{mark}); // OR I CAN USE THE SERVER ACTIONS
       setList(recvList.data.list);
     }
 
     const getAuth = async (token: string,nickname: string)=>{
      
-      const checkAuth = await axios.post("/api/admin/validate-auth",{token, nickname});
+      const checkAuth = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/admin/validate-auth",{token, nickname});
        setAuth(checkAuth.data.status);
        
 

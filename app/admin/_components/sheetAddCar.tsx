@@ -35,7 +35,7 @@ const SheetAddCar = () => {
 
         console.log(name,slug,city,srcImage,year,km,mark,type,transmission,fuel,srcImage);
 
-        const addCar = await axios.post("/api/admin/add-car",{name,slug,city,srcImage,year,km,mark,type,transmission,fuel,price,version,traction,doors,asbBrake});
+        const addCar = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/admin/add-car",{name,slug,city,srcImage,year,km,mark,type,transmission,fuel,price,version,traction,doors,asbBrake});
         console.log(addCar.data);
 
     }   

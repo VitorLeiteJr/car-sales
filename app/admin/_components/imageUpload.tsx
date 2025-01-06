@@ -17,7 +17,7 @@ const MultiImageUploader = ({id}: MultiImageUploaderProps) => {
 
   const getImages = async() => {
         
-    const imgs = await axios.post("/api/images",{id});
+    const imgs = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/images",{id});
     setImages(imgs.data.images);
      
    };
@@ -36,7 +36,7 @@ const MultiImageUploader = ({id}: MultiImageUploaderProps) => {
     formData.append('id', id);
 
 
-    const uploadLocal = await axios.post("/api/images/upload",formData);
+    const uploadLocal = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/images/upload",formData);
     //console.log(uploadLocal.data.returnId);
 
 
@@ -57,7 +57,7 @@ const MultiImageUploader = ({id}: MultiImageUploaderProps) => {
 
   const handleRemoveImage = async (id: number) => {
     setImages((prevImages) => prevImages.filter((image) => image.id !== id));
-   const deleteImage = await axios.post("/api/images/delete",{id});
+   const deleteImage = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/images/delete",{id});
     if(!deleteImage.data.status) alert("error");
   
   };

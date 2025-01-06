@@ -15,7 +15,7 @@ const PanelPage = () => {
     if(!token) {router.push("/");}else {setValide(true);}
 
     const validateAuth = async ()=>{
-    const validateToken =await axios.post("/api/admin/validate-auth",{token});
+    const validateToken =await axios.post(process.env.NEXT_PUBLIC_URL+"/api/admin/validate-auth",{token});
     if(!validateToken.data.status)
       {
         router.push("/");

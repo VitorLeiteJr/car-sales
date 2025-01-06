@@ -22,7 +22,7 @@ const MainImageUpload = ({id}: MultiImageUploaderProps) => {
 
   const getImages = async() => {
         
-    const imgs = await axios.post("/api/images",{id});
+    const imgs = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/images",{id});
     setImages(imgs.data.mainImage);
     console.log(imgs.data.mainImage)
      
@@ -42,7 +42,7 @@ const MainImageUpload = ({id}: MultiImageUploaderProps) => {
     formData.append('id', id);
     formData.append('type', "main");
 
-    const uploadLocal = await axios.post("/api/images/upload",formData);
+    const uploadLocal = await axios.post(process.env.NEXT_PUBLIC_URL+"/api/images/upload",formData);
     console.log(uploadLocal.data.path);
     setSrcImage(uploadLocal.data.path);
 
