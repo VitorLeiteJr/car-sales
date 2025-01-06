@@ -28,7 +28,7 @@ const CarList = async() => {
 
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
           
-          <CardComp car={car[index]}/>
+          <CardComp car={car[index]} auth={false}/>
 
           </CarouselItem>
         ))}

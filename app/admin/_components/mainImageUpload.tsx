@@ -39,7 +39,8 @@ const MainImageUpload = ({id}: MultiImageUploaderProps) => {
 
     const formData = new FormData();
     formData.append('file', files![0]);
-    formData.append('id', "main");
+    formData.append('id', id);
+    formData.append('type', "main");
 
     const uploadLocal = await axios.post("/api/images/upload",formData);
     console.log(uploadLocal.data.path);
@@ -69,10 +70,10 @@ const MainImageUpload = ({id}: MultiImageUploaderProps) => {
       <label className="block mb-4">
         <div className="cursor-pointer hover:text-primary-hover flex gap-2">
         <FaUpload />
-          <label className="cursor-pointer" htmlFor="inputImages">Clique aqui para carregar a imagem padrão</label>
+          <label className="cursor-pointer" htmlFor="maininputImages">Clique aqui para carregar a imagem padrão</label>
           <input className="hidden" name="srcImage" defaultValue={srcImage}></input>
         <input
-          id="inputImages"
+          id="maininputImages"
          title="Carregar images"
           type="file"
           accept="image/*"

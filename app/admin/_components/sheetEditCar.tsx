@@ -11,6 +11,7 @@ import {  FaRegEdit } from "react-icons/fa";
 import MainImageUpload from "./mainImageUpload";
 import axios from "axios";
 import MultiImageUploader from "./imageUpload";
+import { toast } from "@/hooks/use-toast";
 
 interface sheetEditCarProps {
     car: CarType
@@ -36,13 +37,29 @@ const SheetEditCar = ({car}: sheetEditCarProps) => {
         const traction = formData.get("traction") as string;
         const doors = formData.get("doors") as string;
         const asbBrake = formData.get("asbBrake") as string;
+        const id = car.id;
+
 
         console.log(name,slug,city,year,km,mark,type,transmission,fuel);
 
-        const addCar = await axios.post("/api/admin/add-car",{name,slug,city,year,km,mark,type,transmission,fuel,price,version,traction,doors,asbBrake});
-        console.log(addCar.data);
+        const addCar = await axios.post("/api/admin/update-car",{name,slug,city,year,km,mark,type,transmission,fuel,price,version,traction,doors,asbBrake,id});
+        //console.log(addCar.data);
 
+        if(!addCar.data.status){
+          toast({
+            variant: "destructive",
+            title: "Erro",
+            description: "Alguma coisa deu errado!",
+          })
+        }else{
+          toast({
+            variant: "default",
+            title: "Sucesso",
+            description: "Editado com sucesso",
+          })
+        
     }   
+  }
 
 
   return (
@@ -56,9 +73,9 @@ const SheetEditCar = ({car}: sheetEditCarProps) => {
   </SheetTrigger>
   <SheetContent side={"right"} className= "bg-white text-black max-h-screen overflow-y-scroll">
     <SheetHeader>
-      <SheetTitle >Adicionar um novo carro</SheetTitle>
+      <SheetTitle >Editando: {car.name}</SheetTitle>
       <SheetDescription>
-      Adicione as informações solicitadas para adicionar um novo carro
+      Altere as informações abaixo como desejar para editar
       </SheetDescription>
       
        <form onSubmit={handleSubmit} className="space-y-2 ">

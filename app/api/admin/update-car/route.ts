@@ -4,12 +4,13 @@ import { NextRequest, NextResponse } from "next/server";
 export const POST = async(req: NextRequest) =>{
 
     const body = await req.json();
-    const {id,name,year,km,mark,type,transmission,fuel,slug,price} = body;   
+    const {name,year,km,mark,type,transmission,fuel,slug,price,version, traction, doors, absBrake, city,id } = body;   
+ 
 
 
     try {
 
-     await db.cars.update({
+    const upd =  await db.cars.update({
 
             where:{
                 id:id
@@ -23,10 +24,16 @@ export const POST = async(req: NextRequest) =>{
                 transmission:transmission,
                 fuel:fuel,
                 slug:slug,
-                price:parseInt(price)
+                price:parseInt(price),
+                version:version,
+                traction:traction,
+                doors:doors,
+                absBrake:true,
+                city:city
                 
             }   
                         });
+            console.log(upd);
 
            return NextResponse.json({status: true, message: "Informações atualizadas com sucesso"});             
 

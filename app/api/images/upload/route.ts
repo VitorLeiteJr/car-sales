@@ -20,6 +20,9 @@ export const POST = async(req: NextRequest)=>{
     const formData = await req.formData();
     const file = formData.get('file') as File;
     const id = formData.get('id') as string;
+    const type = formData.get('type') as string;
+
+
 
   
 
@@ -43,6 +46,28 @@ export const POST = async(req: NextRequest)=>{
 
   
     try {
+
+        if(type==='main'){
+
+          try{
+            await fs.writeFile(filePath,buffer);
+            await db.cars.updateMany({
+              where:{
+                id: id
+              },
+              data:{
+                image: `/uploads/${file.name}`
+              }
+            })
+            return NextResponse.json({status: true})
+
+          }catch{
+            return NextResponse.json({status: false})
+          }
+
+        }
+
+
       await fs.writeFile(filePath, buffer);
        const insert=  await db.images.createManyAndReturn({
         data:[
