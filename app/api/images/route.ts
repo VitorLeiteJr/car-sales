@@ -8,6 +8,25 @@ export const POST = async (req: NextRequest) =>{
 
     try {
 
+       
+            const gmainImage = await db.cars.findMany({
+                select:{
+                    id: true,
+                    image: true
+                },
+                where:{
+                    id: id
+                }
+
+            });
+
+
+            const mainImage = gmainImage.map(user => ({
+                id: user.id,
+                src: user.image,
+              }));
+        
+
        const images =  await db.images.findMany({
         select:{
             id: true,
@@ -18,7 +37,7 @@ export const POST = async (req: NextRequest) =>{
             }   
         });
 
-        return NextResponse.json({images: images, status: true});
+        return NextResponse.json({mainImage: mainImage, images: images, status: true});
 
     }catch{
 
