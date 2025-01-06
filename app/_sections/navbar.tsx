@@ -30,10 +30,6 @@ const handleLogout = () =>{
   }
 
 
-  const handleOpen = () =>{
-    setisShowLoginModal(true);
-  }
-
   const handleClose = () =>{
     setisShowLoginModal(false);
   }

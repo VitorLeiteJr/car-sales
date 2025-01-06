@@ -1,4 +1,5 @@
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type CarType = {
 
     id: string;
@@ -20,6 +21,7 @@ type CarType = {
   
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   type ImagePreview = {
     id: number;
     src: string;

@@ -4,7 +4,7 @@ import {  Sheet,
     SheetHeader,
     SheetTitle,
     SheetTrigger } from "@/app/_components/ui/sheet";
-import { FaRegUserCircle,FaCar } from "react-icons/fa";
+import { FaRegUserCircle } from "react-icons/fa";
 import SheetAddCar from "./sheetAddCar";
 
 

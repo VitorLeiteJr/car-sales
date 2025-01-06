@@ -1,10 +1,8 @@
 "use client"
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
 import { Separator } from './ui/separator'
-import Link from 'next/link';
-import EditCarModal from '../admin/_components/modal/EditCarModal';
-import { FaRegEdit } from "react-icons/fa";
+import Link from 'next/link'
 import SheetEditCar from '../admin/_components/sheetEditCar';
 
 interface cardProps{
@@ -12,15 +10,7 @@ interface cardProps{
     auth: boolean
 }
 const CardComp = ({car,auth}: cardProps) => {
-  const [showEditCarModal, setShowEditCarModal] = useState<boolean>(false);
-
-  const handleOpen = () =>{
-    setShowEditCarModal(true);
-  }
-
-  const handleClose = () =>{
-    setShowEditCarModal(false);
-  }
+ 
 
   return (
     <>

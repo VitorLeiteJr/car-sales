@@ -1,10 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import Footer from '../_sections/footer'
-import CallToAction from '../_sections/cta/cta'
-import CarList from '../_sections/carList'
 import OurShops from '../_sections/ourShops'
-import CalltoActionSecond from '../_sections/cta/cta-second'
 
 const AboutPage = () => {
   return (

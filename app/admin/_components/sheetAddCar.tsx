@@ -7,7 +7,7 @@ import {  Sheet,
     SheetHeader,
     SheetTitle,
     SheetTrigger } from "@/app/_components/ui/sheet";
-import { FaCar, FaRegEdit } from "react-icons/fa";
+import {  FaRegEdit } from "react-icons/fa";
 import MainImageUpload from "./mainImageUpload";
 import axios from "axios";
 

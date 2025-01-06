@@ -41,7 +41,7 @@ const MultiImageUploader = ({id}: MultiImageUploaderProps) => {
 
 
     if (files) {
-      const newImages = Array.from(files).map((file, index) => {
+      const newImages = Array.from(files).map((file) => {
 
         
         const id = uploadLocal.data.returnId; 

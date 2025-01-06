@@ -16,7 +16,7 @@ export const POST = async (req: NextRequest) =>{
         }
     });
 
-    var response = {
+    let response = {
 
         token: "notoken",
         nickname: "",

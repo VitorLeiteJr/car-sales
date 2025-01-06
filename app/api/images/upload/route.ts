@@ -8,12 +8,6 @@ import { db } from '@/app/_lib/prisma';
 const uploadDir = path.join(process.cwd(), 'public/uploads');
 fs.mkdir(uploadDir, { recursive: true });
 
-export const config = {
-  api: {
-    bodyParser: false, // Disable the built-in body parser to handle file streams
-  },
-};
-
 
 export const POST = async(req: NextRequest)=>{
 

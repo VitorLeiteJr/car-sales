@@ -1,5 +1,5 @@
 
-import { GetImagesCar, GetMainImageCar } from '@/app/_actions/get-images-car'
+import { GetImagesCar} from '@/app/_actions/get-images-car'
 import { GetSpeficCar } from '@/app/_actions/get-spefic-car'
 import { CardContent,Card } from '@/app/_components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/app/_components/ui/carousel'
@@ -17,7 +17,6 @@ interface carProps {
 const Car = async ({params}: carProps) => {
 
     const selectedCar = await GetSpeficCar(params.slug);
-    const mainImage = await GetMainImageCar(params.slug,true);
     const images = await GetImagesCar(params.slug);
 
 
